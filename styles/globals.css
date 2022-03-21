@@ -1,16 +1,159 @@
-html,
-body {
-  padding: 0;
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
-    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
-}
-
-a {
-  color: inherit;
-  text-decoration: none;
-}
+@import url(//db.onlinewebfonts.com/c/831e1f4da157d96bc996f8c9f5f1e578?family=Pokemon+GB);
 
 * {
   box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+html,
+body{
+  max-width: 100vw;
+  max-height: 100vh; 
+  
+}
+
+:root{
+  /* VARIABLES TIPO/COLORES */
+  --handler:var();
+  --normal:#a8a878;
+  --water:#6890f0;
+  --fire:#f08030;
+  --rock:#b8a038;
+  --grass:#78c850;
+  --ghost:#705898;
+  --bug:#a8b820;
+  --poison:#a040a0;
+  --electric:#f8d030;
+  --ground:#e0c068;
+  --fairy:#ee99ac;
+  --fly:;
+  --psychic:#f85888;
+  --dragon:#7038f8;
+  --ice:#98d8d8;
+  --fighting:#c03028;
+}
+
+.pokedex{
+  text-transform: capitalize;
+  background-color: #468352;
+  font-family: "Pokemon GB";
+  display: grid;
+  /* grid-auto-rows: 15%; */
+  grid-template-areas:  ' flap flap flap flap' 
+                        ' pkmName pkmName pkmName pkmType'
+                        ' pkmImg pkmImg pkmImg pkmImg'
+                        ' pkmImg pkmImg pkmImg pkmImg'
+                        ' pkmDes pkmDes pkmDes pkmDes'
+                        ' list list list list';
+                        
+  
+
+  max-width: 100vw;
+  max-height: 100vh; 
+  min-width: 100vw;
+  min-height: 100vh;
+  padding: 1rem;
+  overflow: hidden;
+  
+  border: 1px solid black;
+  gap: 0.2rem;
+}
+
+.solapa{
+  grid-area: flap;
+  background-color: red;
+}
+.pokedex-name{
+  grid-area: pkmName;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: ridge 4px gray;
+}
+.pokedex-img{
+  grid-area: pkmImg;
+  /* background-color: var(--handler); */
+  background-image: linear-gradient(45deg, var(--handler),white,var(--handler));
+  max-height: 15vh;
+  min-height: 15vh;
+  display: flex;
+  border: ridge 4px rgb(255, 255, 255);
+}
+.pokedex-img img{
+  margin: auto;
+}
+
+.pokedex-type{
+  grid-area: pkmType;
+  border: ridge 4px gray;
+  /* background-color: red; */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+
+.pokedex-des{
+  grid-area: pkmDes;
+  background-color: white;
+  padding:.5rem;
+  max-height: 20vh;
+  min-height: 20vh;
+  min-width: 80%;
+  margin-left: auto;
+  margin-right: auto;
+  overflow: scroll;
+  border: ridge 4px gray;
+}
+
+.pokedex-des span{
+  display: none;
+}
+
+.pokedex_list{
+  list-style: none;
+  text-transform: capitalize;
+  font-family: "Pokemon GB";
+  grid-area: list;
+
+  
+  max-height:35vh;
+  margin-bottom: 10vh;
+  overflow: scroll;
+}
+
+
+.pokedex_list .pokedex_list-item{
+  padding: .5rem;
+  border: 1px solid black;
+}
+
+.pokedex_list-item{
+  transition : transform .2s;
+  display: flex;
+  justify-content: space-between;
+  margin-left: 1rem;
+  margin-right: 1rem;
+  
+}
+.pokedex_list-item p {
+  margin: 0;
+  margin-left: 2rem;
+  
+}
+
+.pokedex_list-item:hover{
+    background-color: rgb(126, 180, 226);
+    transform: scale(1.02);
+    cursor: pointer;
+    }
+
+    .pokedex_list-item:active{
+      background-color:rgb(36, 51, 65);
+    }
+
+.pokedex_list-item span{
+  color:rgb(54, 54, 54);
+  margin-right: 2rem;
 }
