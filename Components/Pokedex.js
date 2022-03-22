@@ -1,6 +1,7 @@
 import {useContext, useEffect, useState} from 'react'
 import { pokemonContext ,listContext} from '../pages/index'
 import ListaPokedex from './Moleculas/ListaPokedex'
+import Header from "../Components/Header";
 
 
 const Pokedex = ()=>{
@@ -70,7 +71,7 @@ const Pokedex = ()=>{
 
     return(
         <>
-        
+        <Header/>
         <div className='pokedex'>
             {/* <div className='solapa'>solapas</div> */}
             {context.pokemon.forms ? (
