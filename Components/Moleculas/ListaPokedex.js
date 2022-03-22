@@ -5,9 +5,6 @@ import PokemonOfList from './PokemonOfList'
 const ListaPokedex = ()=>{
 
     const context = useContext(pokemonContext)
-
-    
-    
 return(
     
     <ul className='pokedex_list'>

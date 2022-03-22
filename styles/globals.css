@@ -16,6 +16,9 @@ body{
 :root{
   /* VARIABLES TIPO/COLORES */
   --handler:var();
+  --handlertype1:var();
+  --handlertype2:var();
+  --handlertype3:var();
   --normal:#a8a878;
   --water:#6890f0;
   --fire:#f08030;
@@ -27,12 +30,13 @@ body{
   --electric:#f8d030;
   --ground:#e0c068;
   --fairy:#ee99ac;
-  --fly:;
+  --flying:#333f5c;
   --psychic:#f85888;
   --dragon:#7038f8;
   --ice:#98d8d8;
   --fighting:#c03028;
 }
+
 
 .pokedex{
   text-transform: capitalize;
@@ -42,8 +46,8 @@ body{
   /* grid-auto-rows: 15%; */
   grid-template-areas:  ' flap flap flap flap' 
                         ' pkmName pkmName pkmName pkmType'
-                        ' pkmImg pkmImg pkmImg pkmImg'
-                        ' pkmImg pkmImg pkmImg pkmImg'
+                        ' pkmImg pkmImg pkmImg pkmType'
+                        ' pkmImg pkmImg pkmImg pkmType'
                         ' pkmDes pkmDes pkmDes pkmDes'
                         ' list list list list';
                         
@@ -75,23 +79,51 @@ body{
   grid-area: pkmImg;
   /* background-color: var(--handler); */
   background-image: linear-gradient(45deg, var(--handler),white,var(--handler));
-  max-height: 15vh;
+  
   min-height: 15vh;
+  width: auto;
   display: flex;
+  justify-content: center;
+  /* align-items: center; */
   border: ridge 4px rgb(255, 255, 255);
 }
-.pokedex-img img{
-  margin: auto;
-}
+/* .pokedex-img img{
+  border: solid 2px black;
+
+} */
 
 .pokedex-type{
   grid-area: pkmType;
   border: ridge 4px gray;
   /* background-color: red; */
-  display: flex;
+  display: grid;
+  grid-template-areas:  'pkmTypeH4'
+                        'pkmTypeSpan'
+                        'pkmTypeSpan'
+                        'pkmTypeSpan';
   justify-content: center;
-  align-items: center;
+  justify-items: center;
+  align-content: space-evenly
 }
+
+.pokedex-type .type{
+  grid-area:pkmTypeH4;
+  margin: auto;
+}
+
+.pokedex-type .typeSpan{
+  
+  background-image: linear-gradient(45deg, var(--handlertype1),white,var(--handlertype1));
+  padding: .7rem;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+}
+
+.typeSpan.secondtype{
+  background-image: linear-gradient(45deg, var(--handlertype2),white,var(--handlertype2));
+}
+
 
 
 .pokedex-des{

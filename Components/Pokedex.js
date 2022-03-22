@@ -31,20 +31,42 @@ const Pokedex = ()=>{
             }
     }
 
-    const colorHandler =()=>{
-        if(context.pokemon.forms){
+    const colorHandler =(pkm)=>{
+        if(context.pokemon.forms){ // First verify context exist
+        // Background Pkm color
             let typePkm = context.pokemon.types[0].type.name
             console.log(typePkm)
             document.documentElement.style.setProperty('--handler', `var(--${typePkm})`)
-            console.log(document.documentElement.style.getPropertyValue('--handler'))
-        }
+        //Type Info Color
+            for (let i = 0; i < pkm.length; i++) {
+                let typeName = pkm[i].type.name
+                let eleForClass = document.querySelector(`.${pkm[i].type.name}`);
+                eleForClass.style.backgroundImage = `linear-gradient(45deg, var(--${typeName}),white,var(--${typeName}))`
+            };
+        };
     }
     
+    const types = (pkm)=>{
+        let type = []
+        if(pkm.length > 1){
+        for (let i = 0; i < pkm.length; i++) {
+            const element = pkm[i];
+            type.push(element.type.name)
+            
+        }
+            return type.map(t => <span className={'typeSpan ' +  t }>{t}</span>)
+        }else{
+                return (<span className={'typeSpan ' + pkm[0].type.name}>{pkm[0].type.name}</span>)
+            }
+
+        }
+
     useEffect(()=>{
         findLang('es')
-        colorHandler()
+        colorHandler(context.pokemon.types)
     },[context])
-    
+
+
 
     return(
         <>
@@ -57,7 +79,8 @@ const Pokedex = ()=>{
                     <h3 > {context.pokemon.forms[0].name}</h3>
                 </div>
                 <div className='pokedex-type'>
-                    <h4 >{context.pokemon.types[0].type.name}</h4>
+                    <h4 className='type'>Tipo: </h4>
+                    {types(context.pokemon.types)}
                 </div>
                 <div className='pokedex-img'>
                     <img  src={context.pokemon.sprites.front_default}/>
